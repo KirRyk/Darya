@@ -1,0 +1,978 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Дарья Олихова — психолог, арт-терапевт</title>
+    <meta
+      name="description"
+      content="Дарья Олихова — психолог, арт-терапевт. Индивидуальные консультации очно в Москве и онлайн, групповая арт-терапия."
+    />
+    <meta name="theme-color" content="#980132" />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Дарья Олихова — психолог, арт-терапевт"
+    />
+    <meta
+      property="og:description"
+      content="Индивидуальные консультации очно и онлайн, групповая арт-терапия."
+    />
+    <meta property="og:image" content="https://tildacdn.com" />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ── Variables ─────────────────────────────────── */
+      :root {
+        --text: #2e3136;
+        --bg: #fdfdfd;
+        --warm: #f5f0ea;
+        --accent: #c4a882;
+        --accent-soft: #e8ddd0;
+        --wine: #980132;
+        --wine-soft: #f5e6ec;
+        --radius: 16px;
+        --radius-sm: 10px;
+      }
+
+      /* ── Reset ─────────────────────────────────────── */
+      *,
+      ::before,
+      ::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ── Fonts ─────────────────────────────────────── */
+      .font-ricordi {
+        font-family:
+          "TT Ricordi Allegria", "Cormorant Garamond", "Playfair Display", serif;
+        letter-spacing: 0.02em;
+      }
+      .font-alistair {
+        font-family: "Alistair Signature", "Dancing Script", cursive;
+      }
+
+      section {
+        width: 100%;
+      }
+
+      /* ── Shared ────────────────────────────────────── */
+      .section-label {
+        font-size: clamp(26px, 7vw, 40px);
+        font-weight: 400;
+        color: var(--text);
+        line-height: 1.15;
+      }
+      .divider {
+        width: 40px;
+        height: 2px;
+        background: var(--wine);
+        margin: 14px 0 24px;
+        border-radius: 2px;
+      }
+      .divider--center {
+        margin: 14px auto 24px;
+      }
+
+      .container-narrow {
+        max-width: 760px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      /* ── Reveal ────────────────────────────────────── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 0.55s ease,
+          transform 0.55s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ════════════════════════════════════════════════
+         1. HERO
+      ════════════════════════════════════════════════ */
+      .hero {
+        position: relative;
+        width: 100%;
+        min-height: 100svh;
+        overflow: hidden;
+      }
+      .hero__media {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .hero__photo {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 20%;
+      }
+      .hero__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          transparent 38%,
+          rgba(20, 18, 15, 0.5) 70%,
+          rgba(20, 18, 15, 0.74) 100%
+        );
+      }
+      .hero__text {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        padding: 0 28px 52px;
+      }
+      .hero__cta {
+        display: inline-block;
+        margin-top: 26px;
+        padding: 14px 26px;
+        border: 1.5px solid #fff;
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(6px);
+        color: #fff;
+        text-decoration: none;
+        font-family: "Montserrat", sans-serif;
+        font-size: 13.5px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .hero__cta:hover {
+        background: #fff;
+        color: var(--wine);
+      }
+
+      .hero__panel {
+        display: none;
+      }
+
+      @media (min-width: 1000px) {
+        .hero {
+          display: flex;
+          align-items: stretch;
+          height: 90vh;
+          background: var(--wine);
+        }
+        .hero__media {
+          position: static;
+          flex: 0 0 44%;
+          height: auto;
+          background: var(--wine);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+        .hero__photo {
+          position: static;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          display: block;
+        }
+        .hero__overlay,
+        .hero__text {
+          display: none;
+        }
+        .hero__panel {
+          flex: 1 1 56%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: var(--wine);
+          padding: 48px;
+        }
+        .hero__panel-inner {
+          max-width: 380px;
+        }
+        .hero__panel-divider {
+          width: 40px;
+          height: 2px;
+          background: rgba(255, 255, 255, 0.55);
+          border-radius: 2px;
+          margin-bottom: 22px;
+        }
+        .hero__panel-text {
+          font-size: 14.5px;
+          line-height: 1.75;
+          font-weight: 300;
+          color: rgba(255, 255, 255, 0.88);
+          margin-bottom: 30px;
+        }
+        .hero__cta--solid {
+          display: inline-block;
+          border: 1.5px solid #fff;
+          background: #fff;
+          color: var(--wine);
+          padding: 14px 28px;
+          border-radius: var(--radius);
+          text-decoration: none;
+          font-family: "Montserrat", sans-serif;
+          font-size: 13.5px;
+          font-weight: 600;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          transition:
+            background 0.2s,
+            color 0.2s,
+            border-color 0.2s;
+        }
+        .hero__cta--solid:hover {
+          background: transparent;
+          color: #fff;
+          border-color: #fff;
+        }
+      }
+
+      /* ════════════════════════════════════════════════
+         2. ОБО МНЕ
+      ════════════════════════════════════════════════ */
+      .about {
+        background: var(--bg);
+        padding: 90px 28px;
+      }
+      .about__container {
+        max-width: 1280px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .about__grid {
+        margin-top: 24px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .about__text {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .about__text p {
+        font-size: 16px;
+        line-height: 1.9;
+        font-weight: 300;
+        color: var(--text);
+      }
+      .about__quote {
+        padding: 30px;
+        background: var(--warm);
+        border-radius: var(--radius);
+        border-left: 3px solid var(--wine);
+      }
+      .about__quote p {
+        font-size: 15px;
+        line-height: 1.8;
+        font-style: italic;
+        font-weight: 300;
+      }
+      .about__quote p + p {
+        margin-top: 10px;
+      }
+
+      @media (min-width: 768px) {
+        .about__grid {
+          grid-template-columns: 1.4fr 0.6fr;
+          gap: 60px;
+          align-items: start;
+        }
+        .about__text {
+          column-count: 2;
+          column-gap: 40px;
+        }
+        .about__text p {
+          break-inside: avoid;
+          margin-bottom: 14px;
+        }
+      }
+      @media (min-width: 1024px) {
+        .about {
+          padding: 120px 40px;
+        }
+      }
+
+      /* ════════════════════════════════════════════════
+         3. ОБРАЗОВАНИЕ
+      ════════════════════════════════════════════════ */
+      .education {
+        background: var(--warm);
+        overflow: hidden;
+      }
+      .education__inner {
+        display: flex;
+        flex-direction: column;
+      }
+      .education__photo-wrap {
+        width: 100%;
+        aspect-ratio: 3 / 3.6;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+      .education__photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 8%;
+        filter: grayscale(100%);
+        display: block;
+      }
+      .education__body {
+        padding: 40px 28px 48px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .education__list {
+        list-style: none;
+        margin-top: 4px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .education__list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .edu-num {
+        flex-shrink: 0;
+        width: 28px;
+        height: 28px;
+        background: var(--wine);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: 600;
+        color: #fff;
+        margin-top: 1px;
+      }
+      .edu-text strong {
+        display: block;
+        font-size: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--wine);
+        margin-bottom: 2px;
+      }
+      .edu-text span {
+        font-size: 13px;
+        line-height: 1.6;
+        font-weight: 300;
+        color: var(--text);
+      }
+      .edu-cta {
+        margin-top: 28px;
+        display: inline-block;
+        padding: 13px 24px;
+        border: 1.5px solid var(--wine);
+        border-radius: var(--radius);
+        background: transparent;
+        color: var(--wine);
+        text-decoration: none;
+        font-family: "TT Ricordi Allegria", "Cormorant Garamond", serif;
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        transition:
+          background 0.2s,
+          color 0.2s;
+        align-self: flex-start;
+      }
+      .edu-cta:hover {
+        background: var(--wine);
+        color: #fff;
+      }
+      @media (min-width: 600px) {
+        .education__inner {
+          flex-direction: row;
+          min-height: 500px;
+        }
+        .education__photo-wrap {
+          width: 45%;
+          aspect-ratio: unset;
+          height: auto;
+        }
+        .education__body {
+          padding: 48px 36px;
+        }
+      }
+      @media (min-width: 1024px) {
+        .education__body {
+          padding: 48px 56px;
+        }
+        .education__list,
+        .edu-cta {
+          max-width: 460px;
+        }
+      }
+
+      /* ════════════════════════════════════════════════
+         4. С ЧЕМ Я РАБОТАЮ
+      ════════════════════════════════════════════════ */
+      .work-with {
+        background: var(--bg);
+        padding: 60px 28px;
+      }
+      .tags-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .tag {
+        display: inline-block;
+        padding: 9px 16px;
+        border: 1px solid var(--accent);
+        border-radius: 50px;
+        font-size: 12.5px;
+        font-weight: 400;
+        color: var(--text);
+        letter-spacing: 0.02em;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .tag:hover {
+        background: var(--accent);
+        color: #fff;
+      }
+      @media (min-width: 1024px) {
+        .work-with {
+          padding: 90px 40px;
+        }
+      }
+
+      /* ════════════════════════════════════════════════
+         5. УСЛУГИ
+      ════════════════════════════════════════════════ */
+      .services {
+        background: var(--warm);
+        padding: 60px 28px;
+      }
+      .services__cards {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      @media (min-width: 900px) {
+        .services {
+          padding: 90px 40px;
+        }
+        .services__cards {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          align-items: start;
+          gap: 20px;
+        }
+      }
+      .service-card {
+        border: 1px solid #ddd5c8;
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+      .service-card__header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        background: #faf8f5;
+        cursor: pointer;
+        border: none;
+        text-align: left;
+        gap: 12px;
+        transition: background 0.18s;
+      }
+      .service-card__header:hover {
+        background: var(--accent-soft);
+      }
+      .service-card__header-left {
+        flex: 1;
+      }
+      .service-card__badge {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--wine);
+        margin-bottom: 4px;
+      }
+      .service-card__name {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--text);
+        line-height: 1.3;
+      }
+      .service-card__arrow {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+        color: var(--wine);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .service-card.open .service-card__arrow {
+        transform: rotate(180deg);
+      }
+      .service-card__body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background: #fff;
+        padding: 0 20px;
+      }
+      .service-card.open .service-card__body {
+        max-height: 300px;
+        padding: 20px 20px 24px;
+      }
+      .service-card__price {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--wine);
+        margin-bottom: 10px;
+      }
+      .service-card__desc {
+        font-size: 13.5px;
+        line-height: 1.7;
+        font-weight: 300;
+        color: var(--text);
+      }
+      .service-card__note {
+        margin-top: 10px;
+        font-size: 12px;
+        color: #aaa;
+        font-style: italic;
+        line-height: 1.55;
+      }
+
+      /* ════════════════════════════════════════════════
+         6. КОНТАКТЫ
+      ════════════════════════════════════════════════ */
+      .contacts {
+        background: var(--bg);
+        padding: 60px 28px 80px;
+        text-align: center;
+      }
+      @media (min-width: 1024px) {
+        .contacts {
+          padding: 90px 40px 110px;
+        }
+      }
+      .contacts__links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-top: 8px;
+      }
+      .contact-btn {
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        max-width: 300px;
+        padding: 14px 24px;
+        border: 1.5px solid var(--wine);
+        border-radius: var(--radius);
+        background: transparent;
+        color: var(--wine) !important;
+        font-family: "TT Ricordi Allegria", "Cormorant Garamond", serif;
+        font-size: 15px;
+        font-weight: 400;
+        letter-spacing: 0.03em;
+        transition: all 0.25s ease;
+      }
+      .contact-btn:link,
+      .contact-btn:visited {
+        color: var(--wine) !important;
+      }
+      .contact-btn:hover {
+        background: var(--wine);
+        color: #fff !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1. HERO -->
+    <section class="hero">
+      <div class="hero__media">
+        <img
+          src="https://tildacdn.com"
+          alt="Дарья Олихова — психолог, арт-терапевт"
+          class="hero__photo"
+        />
+      </div>
+      <div class="hero__overlay"></div>
+
+      <div class="hero__text">
+        <h1 class="font-ricordi section-label" style="color: #fff">
+          Дарья Олихова
+        </h1>
+        <p
+          style="
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-top: 8px;
+          "
+        >
+          Психолог · Арт-терапевт
+        </p>
+        <p
+          style="
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-top: 16px;
+            max-width: 420px;
+          "
+        >
+          Безопасное пространство, где вас видят и слышат — очно в Москве и
+          онлайн.
+        </p>
+        <a href="#contacts" class="hero__cta">Записаться на консультацию</a>
+      </div>
+
+      <div class="hero__panel">
+        <div class="hero__panel-inner">
+          <div class="hero__panel-divider"></div>
+          <h2
+            class="font-ricordi"
+            style="
+              font-size: 32px;
+              font-weight: 400;
+              color: #fff;
+              line-height: 1.2;
+              margin-bottom: 8px;
+            "
+          >
+            Дарья Олихова
+          </h2>
+          <p
+            style="
+              color: rgba(255, 255, 255, 0.7);
+              font-size: 13px;
+              font-weight: 400;
+              letter-spacing: 0.08em;
+              text-transform: uppercase;
+              margin-bottom: 24px;
+            "
+          >
+            Психолог · Арт-терапевт
+          </p>
+          <p class="hero__panel-text">
+            Безопасное пространство, где вас видят и слышат — очно в Москве и
+            онлайн.
+          </p>
+          <a href="#contacts" class="hero__cta--solid">
+            Записаться на консультацию
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ОБО МНЕ -->
+    <section class="about" id="about">
+      <div class="about__container">
+        <h2 class="section-label font-ricordi reveal">Обо мне</h2>
+        <div class="divider reveal"></div>
+
+        <div class="about__grid">
+          <div class="about__text reveal">
+            <p>
+              Я дипломированный психолог и арт-терапевт. В своей практике
+              использую интегрированный подход — работаю с техниками из
+              различных методов.
+            </p>
+            <p>
+              Психотерапия — это безопасное пространство, где вас по-настоящему
+              видят и слышат. Здесь вы можете быть собой, не боясь осуждения.
+            </p>
+            <p>
+              Моя задача — быть вашим проводником, помогая исследовать и
+              находить ответы внутри себя.
+            </p>
+          </div>
+
+          <div class="about__quote reveal">
+            <p>«Я рядом, чтобы помочь вам услышать себя».</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. ОБРАЗОВАНИЕ -->
+    <section class="education" id="education">
+      <div class="education__inner">
+        <div class="education__photo-wrap">
+          <img
+            src="https://tildacdn.com"
+            alt="Дарья Олихова"
+            class="education__photo"
+          />
+        </div>
+
+        <div class="education__body">
+          <h2 class="section-label font-ricordi reveal">Образование</h2>
+          <div class="divider reveal"></div>
+
+          <ul class="education__list reveal">
+            <li>
+              <div class="edu-num">1</div>
+              <div class="edu-text">
+                <strong>Бакалавриат</strong>
+                <span>Психолого-педагогическое образование</span>
+              </div>
+            </li>
+            <li>
+              <div class="edu-num">2</div>
+              <div class="edu-text">
+                <strong>Магистратура</strong>
+                <span>
+                  Арт-психология и терапия искусствами в образовании и
+                  консультативной практике
+                </span>
+              </div>
+            </li>
+            <li>
+              <div class="edu-num">3</div>
+              <div class="edu-text">
+                <strong>Переподготовка</strong>
+                <span>Клинико-психологическая диагностика и психотерапия</span>
+              </div>
+            </li>
+            <li>
+              <div class="edu-num">♡</div>
+              <div class="edu-text">
+                <strong>Личная терапия</strong>
+                <span>
+                  Прохожу личную терапию — как часть профессиональной практики и
+                  собственного пути
+                </span>
+              </div>
+            </li>
+          </ul>
+
+          <a href="#contacts" class="edu-cta reveal"> Записаться </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. С ЧЕМ Я РАБОТАЮ -->
+    <section class="work-with" id="work">
+      <div class="container-narrow">
+        <h2 class="section-label font-ricordi reveal">С чем я работаю</h2>
+        <div class="divider reveal"></div>
+
+        <div class="tags-grid reveal">
+          <span class="tag">Межличностные отношения</span>
+          <span class="tag">Тревога и страхи</span>
+          <span class="tag">Панические атаки</span>
+          <span class="tag">Эмоциональное выгорание</span>
+          <span class="tag">Созависимые отношения</span>
+          <span class="tag">Потеря смысла и опоры</span>
+          <span class="tag">Психосоматика</span>
+          <span class="tag">Усталость и потеря энергии</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. УСЛУГИ -->
+    <section class="services" id="services">
+      <div class="container-narrow">
+        <h2 class="section-label font-ricordi reveal">Услуги</h2>
+        <div class="divider reveal"></div>
+
+        <div class="services__cards">
+          <!-- Карточка 1 -->
+          <div class="service-card reveal" id="card-1">
+            <button
+              class="service-card__header"
+              onclick="toggleCard('card-1')"
+              aria-expanded="false"
+            >
+              <div class="service-card__header-left">
+                <div class="service-card__badge">Очно · Онлайн</div>
+                <div class="service-card__name">
+                  Индивидуальная консультация
+                </div>
+              </div>
+              <svg
+                class="service-card__arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="service-card__body">
+              <div class="service-card__price">2 000 ₽ / 60 минут · онлайн</div>
+              <div class="service-card__price">2 500 ₽ / 60 минут · очно</div>
+              <p class="service-card__desc">
+                Встречи возможны очно в Москве или онлайн — в комфортное для вас
+                время.
+              </p>
+              <p class="service-card__note">
+                На данный момент действует сниженная стоимость, так как я
+                набираю практику.
+              </p>
+            </div>
+          </div>
+
+          <!-- Карточка 2 -->
+          <div class="service-card reveal" id="card-2">
+            <button
+              class="service-card__header"
+              onclick="toggleCard('card-2')"
+              aria-expanded="false"
+            >
+              <div class="service-card__header-left">
+                <div class="service-card__badge">Группа · Онлайн / Очно</div>
+                <div class="service-card__name">Групповая арт-терапия</div>
+              </div>
+              <svg
+                class="service-card__arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="service-card__body">
+              <div class="service-card__price">По запросу</div>
+              <p class="service-card__desc">
+                Пространство, где можно отдохнуть и встретиться со своей душой.
+                Цена обсуждается индивидуально.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. КОНТАКТЫ -->
+    <section class="contacts" id="contacts">
+      <div class="container-narrow">
+        <h2 class="section-label font-ricordi reveal">Контакты</h2>
+        <div class="divider divider--center reveal"></div>
+
+        <div class="contacts__links reveal">
+          <a
+            href="https://t.me/"
+            class="contact-btn"
+            target="_blank"
+            rel="noopener"
+          >
+            Написать в Telegram
+          </a>
+          <a
+            href="https://instagram.com/"
+            class="contact-btn"
+            target="_blank"
+            rel="noopener"
+          >
+            Instagram
+          </a>
+          <a
+            href="https://t.me/"
+            class="contact-btn"
+            target="_blank"
+            rel="noopener"
+          >
+            Telegram-канал
+          </a>
+          <a
+            href="https://vk.com/"
+            class="contact-btn"
+            target="_blank"
+            rel="noopener"
+          >
+            ВКонтакте
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function toggleCard(id) {
+        const card = document.getElementById(id);
+        const btn = card.querySelector(".service-card__header");
+        const isOpen = card.classList.contains("open");
+
+        document.querySelectorAll(".service-card").forEach((c) => {
+          c.classList.remove("open");
+          c.querySelector(".service-card__header").setAttribute(
+            "aria-expanded",
+            "false",
+          );
+        });
+
+        if (!isOpen) {
+          card.classList.add("open");
+          btn.setAttribute("aria-expanded", "true");
+        }
+      }
+
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>
